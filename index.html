@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pac-Man</title>
+</head>
+<body>
+    <div id="game-board" tabindex="0">
+
+        <div class="wall" style="top: 40px; left: 120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 120px; left: 120px;"><img src="img/channels4_profile.jpg" alt=""></div>   
+
+        <!-- paredes -->
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 80px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 280px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 320px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 400px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 480px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 520px;"><img src="img/channels4_profile.jpg" alt=""></div> 
+        <div class="wall" style="top: 80px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 120px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 360px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+    
+        <!-- linea vertical -->
+        <div class="wall" style="top: 260px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 300px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 340px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 380px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 220px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 220px; left: 280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 220px; left: 320px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 220px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 220px; left: 400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 420px; left: 120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 300px; left: 0px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 300px; left: 40px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 300px; left: 80px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 460px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 500px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 540px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 580px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 540px; left: 0px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 580px; left: 200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 580px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 580px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 580px; left: 400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 580px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 540px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 500px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 380px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 460px; left: 480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 500px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 540px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 580px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 620px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 660px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 660px; left: 720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 660px; left: 640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 660px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 660px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 620px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 740px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 780px; left: 400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 820px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 860px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 900px; left: 440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 320px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 900px; left: 80px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 40px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 0px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 700px; left: 200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 700px; left: 160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 700px; left: 120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 700px; left: 80px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 700px; left: 40px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 700px; left: 0px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 740px; left: 200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 780px; left: 200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 160px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 280px; left: 600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea vertical -->
+        <div class="wall" style="top: 420px; left: 760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 380px; left: 760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 120px; left: 720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 0px; left: 720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 780px; left: 720px;"> <img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 720px;"><img src="img/channels4_profile.jpg" alt=""> </div>
+        <div class="wall" style="top: 860px; left: 720px;"> <img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 900px; left: 720px;"> <img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 820px; left: 760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 800px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 920px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 1000px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 1040px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 860px; left: 1040px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 560px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 640px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 680px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 380px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 460px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 280px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 920px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 1000px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 1040px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 240px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 0px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 40px; left: 840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 160px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 920px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 120px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 320px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 240px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 80px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 80px; left: 1360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 0px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 40px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 120px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 200px; left: 1320px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 320px; left: 1120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1320px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 420px; left: 920px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 420px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 600px; left: 880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 920px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 1000px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 1000px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 1040px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 780px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 740px; left: 960px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 680px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 640px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 560px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 520px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 480px; left: 1080px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 480px; left: 1120px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 480px; left: 1160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 480px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 480px; left: 1240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 480px; left: 1280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 360px; left: 1160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 440px; left: 1280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 240px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 360px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 400px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 440px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 200px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 240px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 280px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 320px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 200px; left: 1600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 200px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 200px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 120px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 80px; left: 1800px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 80px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 200px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 160px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 120px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 320px; left: 1760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 360px; left: 1760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 400px; left: 1760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 440px; left: 1760px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 440px; left: 1800px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 440px; left: 1840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 440px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 400px; left: 1720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 400px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 440px; left: 1480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 440px; left: 1520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea vertical -->
+        <div class="wall" style="top: 480px; left: 1480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 520px; left: 1480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 560px; left: 1480px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 560px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 560px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea vertical -->
+        <div class="wall" style="top: 480px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 520px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 560px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 600px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 640px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 820px; left: 1160px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 1200px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 1240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 820px; left: 1280px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea vertical -->
+        <div class="wall" style="top: 860px; left: 1240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <div class="wall" style="top: 780px; left: 1240px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 680px; left: 1320px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 680px; left: 1360px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 680px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 680px; left: 1440px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 800px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 840px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 880px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 920px; left: 1400px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 800px; left: 1520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 840px; left: 1520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 880px; left: 1520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 920px; left: 1520px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 800px; left: 1560px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 800px; left: 1600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 800px; left: 1640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 800px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 800px; left: 1720px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 920px; left: 1800px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 920px; left: 1840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 920px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea vertical -->
+        <div class="wall" style="top: 840px; left: 1640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 720px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 760px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 800px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 840px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 880px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 720px; left: 1840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea vertical -->
+        <div class="wall" style="top: 640px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 680px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 720px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 760px; left: 1680px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 680px; left: 1640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 680px; left: 1600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 560px; left: 1880px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 560px; left: 1840px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 560px; left: 1800px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+        <!-- linea horizontal -->
+        <div class="wall" style="top: 520px; left: 1600px;"><img src="img/channels4_profile.jpg" alt=""></div>
+        <div class="wall" style="top: 520px; left: 1640px;"><img src="img/channels4_profile.jpg" alt=""></div>
+
+
+        <!-- objetos -->
+        <div class="pac-man" style="top: 380px; left: 680px;"><img src="img/49rG.gif" alt=""></div>
+        <div class="ghost ghost1" style="top: 0; left: 0;"><img src="img/33HU.gif" alt=""></div>
+        <div class="ghost ghost2" style="top: 0; left: 1400px;"><img src="img/XOsX.gif" alt=""></div>
+        <div class="ghost ghost3" style="top: 440px; left: 1600px;"><img src="img/5Btx.gif" alt=""></div>
+        <div class="ghost ghost4" style="top: 780px; left: 1160px;"><img src="img/1Pxy.gif" alt=""></div>
+        <div class="ghost ghost5" style="top: 860px; left: 280px;"><img src="img/ZJFD.gif" alt=""></div>
+        <div class="ghost ghost6" style="top: 460px; left: 840px;"><img src="img/YyBC.gif" alt=""></div>
+        <div class="ghost ghost6" style="top: 820px; left: 680px;"><img src="img/xw.gif" alt=""></div>
+
+
+        <div class="object" style="top: 120px; left: 600px;" data-message="Question number 1 [FORM1]"><img src="img/4V0V.gif" alt=""></div>
+        <div class="object" style="top: 540px; left: 600px;" data-message="Question number 2 [FORM2]"><img src="img/xt.gif" alt=""></div>
+        <div class="object" style="top: 860px; left: 760px;" data-message="Question number 3 [FORM3]"><img src="img/TgWF.gif" alt=""></div>
+        <div class="object" style="top: 780px; left: 40px;" data-message="Question number 4 [FORM4]"><img src="img/icbf.gif" alt=""></div>
+        <div class="object" style="top: 520px; left: 1160px;" data-message="Question number 5 [FORM5]"><img src="img/sdF.gif" alt=""></div>
+        <div class="object" style="top: 880px; left: 1560px;" data-message="Question number 6 [FORM6]"><img src="img/WgjM.gif" alt=""></div>
+        <div class="object" style="top: 240px; left: 880px;" data-message="Question number 7 [FORM7]"><img src="img/ZNec.gif" alt=""></div>
+        <div class="object" style="top: 40px; left: 1880px;" data-message="Question number 8 [FORM8]"><img src="img/gorra-tricolor-7estrellas-transformed.jpg" alt=""></div>
+        <div class="object" style="top: 480px; left: 1840px;" data-message="Question number 9 [FORM9]"><img src="img/XwI7.gif" alt=""></div>
+        <div class="object" style="top: 420px; left: 0px;" data-message="Question number 10 [FORM10]"><img src="img/Xysd.gif" alt=""></div>
+    </div>
+
+    <div id="score">Puntos: 0</div>
+
+    <div id="popup">
+        <div id="popup-content">
+            <p id="popup-text"></p>
+            <button id="close-popup" onclick="closePopup()">Continuar</button>
+        </div>
+    </div>
+    
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
