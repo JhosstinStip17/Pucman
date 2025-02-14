@@ -11,6 +11,8 @@ const objects = document.querySelectorAll(".object");
 let score = 0;
 let gamePaused = false;
 const ghostPositions = [];
+let pacManSpeed = 4; // Velocidad de Pac-Man
+let keysPressed = {}; // Objeto para rastrear teclas presionadas
 
 
 ghosts.forEach((ghost) => {
@@ -41,8 +43,11 @@ restartGame(); // Iniciar el juego
 const gameWidth = 1900; // Ancho del cuadro de juego
 const gameHeight = 940; // Alto del cuadro de juego
 
+
 // movimiento por teclado
 document.addEventListener("keydown", (e) => {
+    if (gamePaused) return; // Añadir esta línea al inicio
+    
     const step = 40;
     let top = parseInt(window.getComputedStyle(pacMan).getPropertyValue("top"));
     let left = parseInt(window.getComputedStyle(pacMan).getPropertyValue("left"));
@@ -92,20 +97,19 @@ document.addEventListener("keydown", (e) => {
     }
 
     // Lógica de colisión con el fantasma
-    ghosts.forEach((ghost) => {
-
-    let ghostRect = ghost.getBoundingClientRect();
-
-    if (
-        pacManRect.left < ghostRect.right &&
-        pacManRect.right > ghostRect.left &&
-        pacManRect.top < ghostRect.bottom &&
-        pacManRect.bottom > ghostRect.top
-    ) {
-        // El fantasma ha tocado a Pac-Man, reiniciar el juego
-        restartGame();
+    if (!gamePaused) { // Añadir esta condición
+        ghosts.forEach((ghost) => {
+            let ghostRect = ghost.getBoundingClientRect();
+            if (
+                pacManRect.left < ghostRect.right &&
+                pacManRect.right > ghostRect.left &&
+                pacManRect.top < ghostRect.bottom &&
+                pacManRect.bottom > ghostRect.top
+            ) {
+                restartGame();
+            }
+        });
     }
-    });
 });
 
 
@@ -141,20 +145,6 @@ function movePacMan() {
     });
 }
 
-    // Lógica de colisión con el fantasma
-    
-    // let ghostRect = ghost.getBoundingClientRect();
-
-    // if (
-    //     pacManRect.left < ghostRect.right &&
-    //     pacManRect.right > ghostRect.left &&
-    //     pacManRect.top < ghostRect.bottom &&
-    //     pacManRect.bottom > ghostRect.top
-    // ) {
-    //     // El fantasma ha tocado a Pac-Man, reiniciar el juego
-    //     restartGame();
-    // }
-
 
 // Lógica para detectar colisión con las paredes
 function isWallCollision(top, left) {
@@ -173,13 +163,8 @@ function isWallCollision(top, left) {
     return false; // Sin colisión con la pared
 }
 
-// Mostrar el popup
-// function showPopup(text) {
-//     popupText.textContent = text;
-//     popup.style.display = "flex";
-// }
-
 function showPopup(text) {
+    gamePaused = true;
     //formulario 1
     if (text.includes('[FORM1]')) {
         const form1Html = `
@@ -396,70 +381,108 @@ function closePopup() {
     gameBoard.focus(); // Devolver el enfoque al tablero de juego
 }
 
-// Función para mover el fantasma hacia Pac-Man
-function moveGhost(ghost) {
-    if (gamePaused) {
-        return; // Si el juego está pausado, no se ejecuta la lógica de movimiento del fantasma
-    }
-    ghosts.forEach((ghost, index) => {
+// Primero definimos una función para encontrar el mejor camino alrededor de las paredes
+function findBestDirection(ghost, pacMan) {
+    const directions = [
+        { dx: 0, dy: -2, name: 'up' },    // Arriba
+        { dx: 0, dy: 2, name: 'down' },   // Abajo
+        { dx: -2, dy: 0, name: 'left' },  // Izquierda
+        { dx: 2, dy: 0, name: 'right' }   // Derecha
+    ];
 
-    let pacManTop = parseInt(window.getComputedStyle(pacMan).getPropertyValue("top"));
-    let pacManLeft = parseInt(window.getComputedStyle(pacMan).getPropertyValue("left"));
-    let ghostTop = parseInt(window.getComputedStyle(ghost).getPropertyValue("top"));
-    let ghostLeft = parseInt(window.getComputedStyle(ghost).getPropertyValue("left"));
+    const ghostTop = parseInt(window.getComputedStyle(ghost).getPropertyValue("top"));
+    const ghostLeft = parseInt(window.getComputedStyle(ghost).getPropertyValue("left"));
+    const pacManTop = parseInt(window.getComputedStyle(pacMan).getPropertyValue("top"));
+    const pacManLeft = parseInt(window.getComputedStyle(pacMan).getPropertyValue("left"));
 
-    // Lógica de movimiento del fantasma
-    if (pacManTop < ghostTop) {
-        moveVertical(ghost, pacManTop, pacManLeft, ghostTop, ghostLeft, -2); // Ajusta la velocidad del fantasma
-    } else if (pacManTop > ghostTop) {
-        moveVertical(ghost, pacManTop, pacManLeft, ghostTop, ghostLeft, 2); // Ajusta la velocidad del fantasma
-    } else if (pacManLeft < ghostLeft) {
-        moveHorizontal(ghost, pacManTop, pacManLeft, ghostTop, ghostLeft, -2); // Ajusta la velocidad del fantasma
-    } else if (pacManLeft > ghostLeft) {
-        moveHorizontal(ghost, pacManTop, pacManLeft, ghostTop, ghostLeft, 2); // Ajusta la velocidad del fantasma
-    }
-});
+    // Calcula las distancias para cada dirección posible
+    const possibleMoves = directions.map(dir => {
+        const newTop = ghostTop + dir.dy;
+        const newLeft = ghostLeft + dir.dx;
+        
+        // Si hay una pared en esta dirección, asigna una puntuación alta (peor)
+        if (isWallCollision(newTop, newLeft)) {
+            return {
+                direction: dir.name,
+                score: Number.MAX_VALUE
+            };
+        }
+
+        // Calcula la distancia Manhattan al Pac-Man desde la nueva posición
+        const distance = Math.abs(newTop - pacManTop) + Math.abs(newLeft - pacManLeft);
+        
+        return {
+            direction: dir.name,
+            score: distance
+        };
+    });
+
+    // Encuentra la dirección con la menor puntuación (mejor movimiento)
+    const bestMove = possibleMoves.reduce((best, current) => 
+        current.score < best.score ? current : best
+    );
+
+    return bestMove.direction;
 }
 
+
+// Función mejorada para mover el fantasma
+function moveGhost(ghost) {
+    if (gamePaused) return;
+
+    const ghostTop = parseInt(window.getComputedStyle(ghost).getPropertyValue("top"));
+    const ghostLeft = parseInt(window.getComputedStyle(ghost).getPropertyValue("left"));
+    const bestDirection = findBestDirection(ghost, pacMan);
+    const speed = 2;
+
+    // Aplica el movimiento basado en la mejor dirección
+    switch (bestDirection) {
+        case 'up':
+            if (!isWallCollision(ghostTop - speed, ghostLeft)) {
+                ghost.style.top = (ghostTop - speed) + "px";
+            }
+            break;
+        case 'down':
+            if (!isWallCollision(ghostTop + speed, ghostLeft)) {
+                ghost.style.top = (ghostTop + speed) + "px";
+            }
+            break;
+        case 'left':
+            if (!isWallCollision(ghostTop, ghostLeft - speed)) {
+                ghost.style.left = (ghostLeft - speed) + "px";
+            }
+            break;
+        case 'right':
+            if (!isWallCollision(ghostTop, ghostLeft + speed)) {
+                ghost.style.left = (ghostLeft + speed) + "px";
+            }
+            break;
+    }
+
+    // Verifica colisión con Pac-Man
+    let ghostRect = ghost.getBoundingClientRect();
+    let pacManRect = pacMan.getBoundingClientRect();
+
+    if (
+        ghostRect.left < pacManRect.right &&
+        ghostRect.right > pacManRect.left &&
+        ghostRect.top < pacManRect.bottom &&
+        ghostRect.bottom > pacManRect.top
+    ) {
+        restartGame();
+    }
+}
+
+// Actualiza la función que mueve todos los fantasmas
 function moveAllGhosts() {
-    ghostArray.forEach((ghost) => {
+    ghostArray.forEach(ghost => {
         moveGhost(ghost);
     });
 }
 
-// Función para mover un elemento verticalmente
-function moveVertical(element, pacManTop, pacManLeft, ghostTop, ghostLeft, direction) {
-    if (pacManTop === ghostTop) {
-        let currentLeft = parseInt(window.getComputedStyle(element).getPropertyValue("left"));
-        if (currentLeft !== pacManLeft) {
-            element.style.left = currentLeft + (currentLeft < pacManLeft ? 1 : -1) + "px";
-        }
-    } else {
-        let currentTop = parseInt(window.getComputedStyle(element).getPropertyValue("top"));
-        if (currentTop !== pacManTop && !isWallCollision(currentTop + direction, ghostLeft)) {
-            element.style.top = currentTop + direction + "px";
-        }
-    }
-}
-
-// Función para mover un elemento horizontalmente
-function moveHorizontal(element, pacManTop, pacManLeft, ghostTop, ghostLeft, direction) {
-    if (pacManLeft === ghostLeft) {
-        let currentTop = parseInt(window.getComputedStyle(element).getPropertyValue("top"));
-        if (currentTop !== pacManTop) {
-            element.style.top = currentTop + (currentTop < pacManTop ? 1 : -1) + "px";
-        }
-    } else {
-        let currentLeft = parseInt(window.getComputedStyle(element).getPropertyValue("left"));
-        if (currentLeft !== pacManLeft && !isWallCollision(ghostTop, currentLeft + direction)) {
-            element.style.left = currentLeft + direction + "px";
-        }
-    }
-}
-
-// Lógica para que el fantasma siga a Pac-Man
-setInterval(moveGhost, 10); // Ajusta la velocidad de movimiento del fantasma según sea necesario
-setInterval(movePacMan, 10);
+clearInterval(window.ghostInterval);
+window.ghostInterval = setInterval(moveAllGhosts, 15);
+setInterval(movePacMan, 5);
 
 
 
