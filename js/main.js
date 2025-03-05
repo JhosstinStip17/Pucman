@@ -33,7 +33,7 @@ function restartGame() {
     });
 
     score = 0;
-    scoreDisplay.textContent = "Puntos: " + score;
+    scoreDisplay.textContent = "Points: " + score;
     gamePaused = false;
     objects.forEach((object) => (object.style.display = "block"));
 }
@@ -47,7 +47,7 @@ const gameHeight = 940; // Alto del cuadro de juego
 // movimiento por teclado
 document.addEventListener("keydown", (e) => {
     if (gamePaused) return; // Añadir esta línea al inicio
-    
+
     const step = 40;
     let top = parseInt(window.getComputedStyle(pacMan).getPropertyValue("top"));
     let left = parseInt(window.getComputedStyle(pacMan).getPropertyValue("left"));
@@ -88,10 +88,7 @@ document.addEventListener("keydown", (e) => {
         ) {
             // Pac-Man ha tocado un objeto
             object.style.display = "none";
-            score += 10;
-            scoreDisplay.textContent = "Puntos: " + score;
             const message = object.getAttribute("data-message");
-
             showPopup(message);
         }
     }
@@ -121,7 +118,7 @@ function movePacMan() {
     let pacManRect = pacMan.getBoundingClientRect();
     let objectRect = object.getBoundingClientRect();
     ghosts.forEach((ghost) => {
-        
+
         if (
             object.style.display !== "none" &&
             pacManRect.left < objectRect.right &&
@@ -134,7 +131,7 @@ function movePacMan() {
             // Pac-Man ha tocado un objeto
             object.style.display = "none";
             score += 10;
-            scoreDisplay.textContent = "Puntos: " + score;
+            scoreDisplay.textContent = "Points: " + score;
 
             // Obtener el mensaje específico del objeto
             const message = object.getAttribute("data-message");
@@ -168,140 +165,160 @@ function showPopup(text) {
     //formulario 1
     if (text.includes('[FORM1]')) {
         const form1Html = `
-            <form id="form1">
-            <br><label for="field1">What does HTML stand for?</label><br><br>
-                <input type="radio" name="answer" value="">a) Hyper Transfer Markup Language <br>
-                <input type="radio" name="answer" value="">b) Hyper Text Markup Language<br>
-                <input type="radio" name="answer" value="">c) Hyperlink Text Markup Language <br>
-                <input type="radio" name="answer" value="">d) High Tech Markup Language<br>
-            </form>
-        `;
+                <form id="form1">
+                <br><label for="field1">What does HTML stand for?</label><br><br>
+                    <input type="radio" name="answer" value="">a) Hyper Transfer Markup Language <br>
+                    <input type="radio" name="answer" value="1">b) Hyper Text Markup Language<br>
+                    <input type="radio" name="answer" value="">c) Hyperlink Text Markup Language <br>
+                    <input type="radio" name="answer" value="">d) High Tech Markup Language<br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM1]', form1Html);
     }
 
     //formulario 2
     if (text.includes('[FORM2]')) {
         const form2Html = `
-            <form id="form2">
-            <br><label for="field1">Which of the following is a programming language?</label><br><br>
-                <input type="radio" name="answer" value="1">a) Python<br>
-                <input type="radio" name="answer" value="">b) CPU<br>
-                <input type="radio" name="answer" value="">c) GPU<br>
-                <input type="radio" name="answer" value="">d) RAM<br>
-            </form>
-        `;
+                <form id="form2">
+                <br><label for="field1">Which of the following is a programming language?</label><br><br>
+                    <input type="radio" name="answer" value="1">a) Python<br>
+                    <input type="radio" name="answer" value="">b) CPU<br>
+                    <input type="radio" name="answer" value="">c) GPU<br>
+                    <input type="radio" name="answer" value="">d) RAM<br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM2]', form2Html);
     }
 
     // formulario 3
     if (text.includes('[FORM3]')) {
         const form3Html = `
-            <form id="form3">
-            <br><label for="field1">Which data structure is used to store a collection of elements with no specific order?</label><br><br>
-                <input type="radio" name="answer" value="1">a) Queue<br>
-                <input type="radio" name="answer" value="">b) Stack <br>
-                <input type="radio" name="answer" value="">c) Array <br>
-                <input type="radio" name="answer" value="">d) Set<br>
-            </form>
-        `;
+                <form id="form3">
+                <br><label for="field1">Which data structure is used to store a collection of elements with no specific order?</label><br><br>
+                    <input type="radio" name="answer" value="1">a) Queue<br>
+                    <input type="radio" name="answer" value="">b) Stack <br>
+                    <input type="radio" name="answer" value="">c) Array <br>
+                    <input type="radio" name="answer" value="">d) Set<br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM3]', form3Html);
     }
 
     // formulario 4
     if (text.includes('[FORM4]')) {
         const form4Html = `
-            <form id="form4">
-            <br><label for="field1">What is the primary function of a loop in programming?</label><br><br>
-                <input type="radio" name="answer" value="1">a) To make decisions<br>
-                <input type="radio" name="answer" value="">b) To define functions <br>
-                <input type="radio" name="answer" value="">c) To repeat a block of code <br>
-                <input type="radio" name="answer" value="">d) To perform arithmetic operations<br>
-            </form>
-        `;
+                <form id="form4">
+                <br><label for="field1">What is the primary function of a loop in programming?</label><br><br>
+                    <input type="radio" name="answer" value="1">a) To make decisions<br>
+                    <input type="radio" name="answer" value="">b) To define functions <br>
+                    <input type="radio" name="answer" value="">c) To repeat a block of code <br>
+                    <input type="radio" name="answer" value="">d) To perform arithmetic operations<br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM4]', form4Html);
     }
 
     // formulario 5
     if (text.includes('[FORM5]')) {
         const form5Html = `
-            <form id="form5">
-            <br><label for="field1">Which of the following is a version control system?</label><br><br>
-                <input type="radio" name="answer" value="1">a) Git <br>
-                <input type="radio" name="answer" value="">b) HTML  <br>
-                <input type="radio" name="answer" value="">c) CSS  <br>
-                <input type="radio" name="answer" value="">d) HTTP <br>
-            </form>
-        `;
+                <form id="form5">
+                <br><label for="field1">Which of the following is a version control system?</label><br><br>
+                    <input type="radio" name="answer" value="1">a) Git <br>
+                    <input type="radio" name="answer" value="">b) HTML  <br>
+                    <input type="radio" name="answer" value="">c) CSS  <br>
+                    <input type="radio" name="answer" value="">d) HTTP <br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM5]', form5Html);
     }
 
     // formulario 6
     if (text.includes('[FORM6]')) {
         const form6Html = `
-            <form id="form6">
-            <br><label for="field1">What is the file extension commonly used for Python scripts? </label><br><br>
-                <input type="radio" name="answer" value="1">a) .py <br>
-                <input type="radio" name="answer" value="">b) .txt   <br>
-                <input type="radio" name="answer" value="">c) .html  <br>
-                <input type="radio" name="answer" value="">d) .java <br>
-            </form>
-        `;
+                <form id="form6">
+                <br><label for="field1">What is the file extension commonly used for Python scripts? </label><br><br>
+                    <input type="radio" name="answer" value="">a) .html <br>
+                    <input type="radio" name="answer" value="">b) .txt   <br>
+                    <input type="radio" name="answer" value="1">c) .py  <br>
+                    <input type="radio" name="answer" value="">d) .java <br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM6]', form6Html);
     }
 
     // formulario 7
     if (text.includes('[FORM7]')) {
         const form7Html = `
-            <form id="form7">
-            <br><label for="field1">Which of the following is a widely used relational database management system?  </label><br><br>
-                <input type="radio" name="answer" value="1">a) MySQL  <br>
-                <input type="radio" name="answer" value="">b) JSON  <br>
-                <input type="radio" name="answer" value="">c) XML   <br>
-                <input type="radio" name="answer" value="">d) HTML <br>
-            </form>
-        `;
+                <form id="form7">
+                <br><label for="field1">Which of the following is a widely used relational database management system?  </label><br><br>
+                    <input type="radio" name="answer" value="">a) HTML  <br>
+                    <input type="radio" name="answer" value="">b) JSON  <br>
+                    <input type="radio" name="answer" value="">c) XML   <br>
+                    <input type="radio" name="answer" value="1">d) MySQL <br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM7]', form7Html);
     }
 
     // formulario 8
     if (text.includes('[FORM8]')) {
         const form8Html = `
-            <form id="form8">
-            <br><label for="field1">What does IDE stand for in programming? </label><br><br>
-                <input type="radio" name="answer" value="1">a) Integrated Development Environment   <br>
-                <input type="radio" name="answer" value="">b) Intelligent Design Engineering   <br>
-                <input type="radio" name="answer" value="">c) Internet Data Exchange   <br>
-                <input type="radio" name="answer" value="">d) Initial Deployment Environment <br>
-            </form>
-        `;
+                <form id="form8">
+                <br><label for="field1">What does IDE stand for in programming? </label><br><br>
+                    <input type="radio" name="answer" value="">a) Intelligent Design Engineering   <br>
+                    <input type="radio" name="answer" value="1">b) Integrated Development Environment   <br>
+                    <input type="radio" name="answer" value="">c) Internet Data Exchange   <br>
+                    <input type="radio" name="answer" value="">d) Initial Deployment Environment <br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM8]', form8Html);
     }
 
     // formulario 9
     if (text.includes('[FORM9]')) {
         const form9Html = `
-            <form id="form9">
-            <br><label for="field1">In web development, what does CSS stand for? </label><br><br>
-                <input type="radio" name="answer" value="1">a) Cascading Style Sheet <br>
-                <input type="radio" name="answer" value="">b) Computer System Software <br>
-                <input type="radio" name="answer" value="">c) Creative Style Solution <br>
-                <input type="radio" name="answer" value="">d) Centralized Script Service <br>
-            </form>
-        `;
+                <form id="form9">
+                <br><label for="field1">In web development, what does CSS stand for? </label><br><br>
+                    <input type="radio" name="answer" value="1">a) Cascading Style Sheet <br>
+                    <input type="radio" name="answer" value="">b) Computer System Software <br>
+                    <input type="radio" name="answer" value="">c) Creative Style Solution <br>
+                    <input type="radio" name="answer" value="">d) Centralized Script Service <br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM9]', form9Html);
     }
 
     // formulario 10
     if (text.includes('[FORM10]')) {
         const form10Html = `
-            <form id="form10">
-            <br><label for="field1">What is the main purpose of conditional statements in programming?</label><br><br>
-                <input type="radio" name="answer" value="1">a) To repeat code <br>
-                <input type="radio" name="answer" value="">b) To define functions <br>
-                <input type="radio" name="answer" value="">c) To make decisions  <br>
-                <input type="radio" name="answer" value="">d) To create comments <br>
-            </form>
-        `;
+                <form id="form10">
+                <br><label for="field1">What is the main purpose of conditional statements in programming?</label><br><br>
+                    <input type="radio" name="answer" value="">a) To create comments <br>
+                    <input type="radio" name="answer" value="">b) To define functions <br>
+                    <input type="radio" name="answer" value="">c) To make decisions  <br>
+                    <input type="radio" name="answer" value="1">d) To repeat code <br>
+                    <br>
+                    <button type="submit">Continuar</button>
+                </form>
+            `;
         text = text.replace('[FORM10]', form10Html);
     }
 
@@ -309,17 +326,28 @@ function showPopup(text) {
     popupText.innerHTML = text;
     popup.style.display = "flex";
 
-    // Enfocar el primer campo de entrada en el formulario
-    const form1 = document.querySelector("#form1");
-    const form2 = document.querySelector("#form2");
-    const form3 = document.querySelector("#form3");
-    const form4 = document.querySelector("#form4");
-    const form5 = document.querySelector("#form5");
-    const form6 = document.querySelector("#form6");
-    const form7 = document.querySelector("#form7");
-    const form8 = document.querySelector("#form8");
-    const form9 = document.querySelector("#form9");
-    const form10 = document.querySelector("#form10");
+    // Add event listeners to all possible forms
+    const forms = [
+        document.getElementById("form1"),
+        document.getElementById("form2"),
+        document.getElementById("form3"),
+        document.getElementById("form4"),
+        document.getElementById("form5"),
+        document.getElementById("form6"),
+        document.getElementById("form7"),
+        document.getElementById("form8"),
+        document.getElementById("form9"),
+        document.getElementById("form10")
+    ];
+
+    forms.forEach(form => {
+        if (form) {
+            // Remove any existing event listeners to prevent multiple attachments
+            form.removeEventListener('submit', handleFormSubmission);
+            form.addEventListener('submit', handleFormSubmission);
+        }
+    });
+
     if (form1) {
         const firstInput1 = form1.querySelector("input");
         if (firstInput1) {
@@ -335,43 +363,71 @@ function showPopup(text) {
         if (firstInput3) {
             firstInput3.focus();
         }
-    }else if (form4) {
+    } else if (form4) {
         const firstInput4 = form4.querySelector("input");
         if (firstInput4) {
             firstInput4.focus();
         }
-    }else if (form5) {
+    } else if (form5) {
         const firstInput5 = form5.querySelector("input");
         if (firstInput5) {
             firstInput5.focus();
         }
-    }else if (form6) {
+    } else if (form6) {
         const firstInput6 = form6.querySelector("input");
         if (firstInput6) {
             firstInput6.focus();
         }
-    }else if (form7) {
+    } else if (form7) {
         const firstInput7 = form7.querySelector("input");
         if (firstInput7) {
             firstInput7.focus();
         }
-    }else if (form8) {
+    } else if (form8) {
         const firstInput8 = form8.querySelector("input");
         if (firstInput8) {
             firstInput8.focus();
         }
-    }else if (form9) {
+    } else if (form9) {
         const firstInput9 = form9.querySelector("input");
         if (firstInput9) {
             firstInput9.focus();
         }
-    }else if (form10) {
+    } else if (form10) {
         const firstInput10 = form10.querySelector("input");
         if (firstInput10) {
             firstInput10.focus();
         }
     }
 
+}
+
+function handleFormSubmission(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Find the selected radio button
+    const selectedRadio = event.target.querySelector('input[name="answer"]:checked');
+    
+    if (!selectedRadio) {
+        alert("Please select an answer!");
+        return;
+    }
+
+    // Check if the selected answer is correct (has value "1")
+    const isCorrect = selectedRadio.value === "1";
+
+    if (isCorrect) {
+        // Correct answer - add points
+        score += 10;
+        scoreDisplay.textContent = "Points: " + score;
+        alert("Correct answer! +10 Points");
+    } else {
+        // Incorrect answer - no points added
+        alert("Wrong answer. Try again.");
+    }
+
+    // Close the popup
+    closePopup();
 }
 
 // Cerrar el popup
@@ -382,7 +438,7 @@ function closePopup() {
 }
 
 // Primero definimos una función para encontrar el mejor camino alrededor de las paredes
-function findBestDirection(ghost, pacMan) {
+function findBestDirection(ghost, pacMan, otherGhosts) {
     const directions = [
         { dx: 0, dy: -2, name: 'up' },    // Arriba
         { dx: 0, dy: 2, name: 'down' },   // Abajo
@@ -399,7 +455,7 @@ function findBestDirection(ghost, pacMan) {
     const possibleMoves = directions.map(dir => {
         const newTop = ghostTop + dir.dy;
         const newLeft = ghostLeft + dir.dx;
-        
+
         // Si hay una pared en esta dirección, asigna una puntuación alta (peor)
         if (isWallCollision(newTop, newLeft)) {
             return {
@@ -408,9 +464,30 @@ function findBestDirection(ghost, pacMan) {
             };
         }
 
+        // Verificar colisión con otros fantasmas
+        const wouldCollideWithGhosts = otherGhosts.some(otherGhost => {
+            if (otherGhost === ghost) return false;
+            const otherTop = parseInt(window.getComputedStyle(otherGhost).getPropertyValue("top"));
+            const otherLeft = parseInt(window.getComputedStyle(otherGhost).getPropertyValue("left"));
+
+            return (
+                newTop < otherTop + 30 &&
+                newTop + 30 > otherTop &&
+                newLeft < otherLeft + 30 &&
+                newLeft + 30 > otherLeft
+            );
+        });
+
+        if (wouldCollideWithGhosts) {
+            return {
+                direction: dir.name,
+                score: Number.MAX_VALUE
+            };
+        }
+
         // Calcula la distancia Manhattan al Pac-Man desde la nueva posición
         const distance = Math.abs(newTop - pacManTop) + Math.abs(newLeft - pacManLeft);
-        
+
         return {
             direction: dir.name,
             score: distance
@@ -418,7 +495,7 @@ function findBestDirection(ghost, pacMan) {
     });
 
     // Encuentra la dirección con la menor puntuación (mejor movimiento)
-    const bestMove = possibleMoves.reduce((best, current) => 
+    const bestMove = possibleMoves.reduce((best, current) =>
         current.score < best.score ? current : best
     );
 
@@ -432,7 +509,10 @@ function moveGhost(ghost) {
 
     const ghostTop = parseInt(window.getComputedStyle(ghost).getPropertyValue("top"));
     const ghostLeft = parseInt(window.getComputedStyle(ghost).getPropertyValue("left"));
-    const bestDirection = findBestDirection(ghost, pacMan);
+    
+    // Pasar todos los fantasmas excepto el actual
+    const otherGhosts = ghostArray.filter(g => g !== ghost);
+    const bestDirection = findBestDirection(ghost, pacMan, otherGhosts);
     const speed = 2;
 
     // Aplica el movimiento basado en la mejor dirección
